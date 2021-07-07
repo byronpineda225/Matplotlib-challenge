@@ -2,88 +2,23 @@
 
 ## Background
 
-What good is data without a good plot to tell the story?
-
-So, let's take what you've learned about Python Matplotlib and apply it to a real-world situation and dataset:
-
 ![Laboratory](Images/Laboratory.jpg)
 
 While your data companions rushed off to jobs in finance and government, you remained adamant that science was the way for you. Staying true to your mission, you've joined Pymaceuticals Inc., a burgeoning pharmaceutical company based out of San Diego. Pymaceuticals specializes in anti-cancer pharmaceuticals. In its most recent efforts, it began screening for potential treatments for squamous cell carcinoma (SCC), a commonly occurring form of skin cancer.
 
 As a senior data analyst at the company, you've been given access to the complete data from their most recent animal study. In this study, 249 mice identified with SCC tumor growth were treated through a variety of drug regimens. Over the course of 45 days, tumor development was observed and measured. The purpose of this study was to compare the performance of Pymaceuticals' drug of interest, Capomulin, versus the other treatment regimens. You have been tasked by the executive team to generate all of the tables and figures needed for the technical report of the study. The executive team also has asked for a top-level summary of the study results.
 
-## Instructions
+## Observations and Insights
 
-Your tasks are to do the following:
+1) Please note that a female mouse identified as "g989" was removed from the analysis as there was duplication of data for that particular mouse. That left 123 female and 125 male mice for a total of 248 for this study making for a fairly even distribution between sexes.
 
-* Before beginning the analysis, check the data for any mouse ID with duplicate time points and remove any data associated with that mouse ID.
+2) The correlation between mouse weight and the average tumor volume was 0.84 for the Capomulin regimen as seen in the the last scatter plot. This indicates a strong positive relationship between higher mouse weight and increased average tumor volume specifically with the Capomulin regime. The subject mice weight started around 15 (g) and the average tumor volume was roughly 36 (mm3). The heaviest mice weighed roughly 25 (g) and the tumor volume increased to nearly 46 (mm3). It should be noted that the Capomulin regimen also had the most participants at 230 mice for this study.
 
-* Use the cleaned data for the remaining steps.
+3) The Linear regression for this particular study for the Capomulin is y = 0.95x + 21.55, where the variable being predicted or dependent variable is the tumor volume (y value) and the variable that is the predictor (x) or independent variable is the mouse weight. The R-squared value is nearly .71 for this particular study. This represents a fairly small difference between the observed data and predicted values. In addition,the p-value is extremely small at 1.3225722434712642e-07. This is well below the standard p-value cutoff of .05. The stderr, which quantifies the uncertainty of the estimates, shows it is just 0.12754359033201335 - a very low number indeed. All of these indicate the our linear regression model is a good fit for the data.
 
-* Generate a summary statistics table consisting of the mean, median, variance, standard deviation, and SEM of the tumor volume for each drug regimen.
+4) The box plots of the final tumor volume of each mouse across the regimens Capomulin, Ramicane, Infubinol, and Ceftamin show that Capomulin and Ramicane were significantly more effective at reducing tumor volumes. Specifically this is what the median values show for the four regimens in this part of the study:
 
-* Generate a bar plot using both Pandas's `DataFrame.plot()` and Matplotlib's `pyplot` that shows the total number of timepoints for all mice tested for each drug regimen throughout the course of the study.
-
-    **NOTE:** These plots should look identical.
-
-* Generate a pie plot using both Pandas's `DataFrame.plot()` and Matplotlib's `pyplot` that shows the distribution of female or male mice in the study.
-
-    **NOTE:** These plots should look identical.
-
-* Calculate the final tumor volume of each mouse across four of the most promising treatment regimens: Capomulin, Ramicane, Infubinol, and Ceftamin. Calculate the quartiles and IQR and quantitatively determine if there are any potential outliers across all four treatment regimens.
-
-* Using Matplotlib, generate a box and whisker plot of the final tumor volume for all four treatment regimens and highlight any potential outliers in the plot by changing their color and style.
-
-  **Hint**: All four box plots should be within the same figure. Use this [Matplotlib documentation page](https://matplotlib.org/gallery/pyplots/boxplot_demo_pyplot.html#sphx-glr-gallery-pyplots-boxplot-demo-pyplot-py) for help with changing the style of the outliers.
-
-* Select a mouse that was treated with Capomulin and generate a line plot of tumor volume vs. time point for that mouse.
-
-* Generate a scatter plot of tumor volume versus mouse weight for the Capomulin treatment regimen.
-
-* Calculate the correlation coefficient and linear regression model between mouse weight and average tumor volume for the Capomulin treatment. Plot the linear regression model on top of the previous scatter plot.
-
-* Look across all previously generated figures and tables and write at least three observations or inferences that can be made from the data. Include these observations at the top of notebook.
-
-Here are some final considerations:
-
-* You must use proper labeling of your plots, to include properties such as: plot titles, axis labels, legend labels, _x_-axis and _y_-axis limits, etc.
-
-* See the [starter workbook](Pymaceuticals/pymaceuticals_starter.ipynb) for help on what modules to import and expected format of the notebook.
-
-## Hints and Considerations
-
-* Be warned: These are very challenging tasks. Be patient with yourself as you trudge through these problems. They will take time and there is no shame in fumbling along the way. Data visualization is equal parts exploration, equal parts resolution.
-
-* You have been provided a starter notebook. Use the code comments as a reminder of steps to follow as you complete the assignment.
-
-* Don't get bogged down in small details. Always focus on the big picture. If you can't figure out how to get a label to show up correctly, come back to it. Focus on getting the core skeleton of your notebook complete. You can always revisit old problems.
-
-* While you are trying to complete this assignment, feel encouraged to constantly refer to Stack Overflow and the Pandas documentation. These are needed tools in every data analyst's tool belt.
-
-* Remember, there are many ways to approach a data problem. The key is to break up your task into micro tasks. Try answering questions like:
-
-  * How does my DataFrame need to be structured for me to have the right _x_-axis and _y_-axis?
-
-  * How do I build a basic scatter plot?
-
-  * How do I add a label to that scatter plot?
-
-  * Where would the labels for that scatter plot come from?
-
-  Again, don't let the magnitude of a programming task scare you off. Ultimately, every programming problem boils down to a handful of bite-sized tasks.
-
-* Get help when you need it! There is never any shame in asking. But, as always, ask a _specific_ question. You'll never get a great answer to "I'm lost."
-
-## Rubric
-
-[Unit 5 Rubric - Matplotlib Homework - The Power of Plots](https://docs.google.com/document/d/1ZZ0lFGHqKwVdqjTCfynY2FSiswuOMBVi9An7oWeg344/edit?usp=sharing)
-
-- - -
-
-## References
-
-Mockaroo, LLC. (2021). Realistic Data Generator. [https://www.mockaroo.com/](https://www.mockaroo.com/)
-
-- - -
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+The median of Capomulin tumors: 38.125164399999996 
+The median of Ramicane tumors: 36.56165229 
+The median of Infubinol tumors: 60.16518046
+The median of Ceftamin tumors: 59.85195552 
