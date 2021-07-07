@@ -18,7 +18,7 @@ As a senior data analyst at the company, you've been given access to the complet
 
 4) The box plots of the final tumor volume of each mouse across the regimens Capomulin, Ramicane, Infubinol, and Ceftamin show that Capomulin and Ramicane were significantly more effective at reducing tumor volumes. Specifically this is what the median values show for the four regimens in this part of the study:
 
-  The median of Capomulin tumors: 38.125164399999996 
-  The median of Ramicane tumors: 36.56165229 
-  The median of Infubinol tumors: 60.16518046
-  The median of Ceftamin tumors: 59.85195552 
+   * The median of Capomulin tumors: 38.125164399999996 
+   * The median of Ramicane tumors: 36.56165229 
+   * The median of Infubinol tumors: 60.16518046
+   * The median of Ceftamin tumors: 59.85195552 
